@@ -32,6 +32,8 @@
 
 @property(strong, nonatomic) NSNumber *suspendedModeIsActive;
 
+@property(strong, nonatomic) NSNumber *idfaIsActive;
+
 -(void)closeAllActions;
 
 // optional; if you want to get additional data with your identifier, set this dictionary this will be send to server
