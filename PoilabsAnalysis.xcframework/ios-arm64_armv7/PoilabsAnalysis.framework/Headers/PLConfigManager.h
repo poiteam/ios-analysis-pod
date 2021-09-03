@@ -17,9 +17,10 @@
 
 -(void)getReadyForTrackingWithCompletionHandler:(void (^)(PLError *error))completionHandler;
 
+-(void)getStatus;
+
 @property(strong, nonatomic) PLConfig *clientConfig;
 
-@property(assign, nonatomic) BOOL bluetoothStatus;
 
 @property(assign, nonatomic) CLAuthorizationStatus locationPermissionStatus;
 
