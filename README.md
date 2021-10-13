@@ -41,6 +41,54 @@ You should have some information to use this framework:
 2. ApplicationSecret : It should be given by PoiLabs
 3. AnalysisUniqueIdentifier : It should be defined by you, to identify your customer for us, it is like userId or userEmail.
 
+### Swift
+
+You should import framework in your AppDelegate
+
+```swift
+import PoilabsAnalysis
+```
+
+In applicationDidBecomeActive: method you should activate the framework:
+
+```swift
+        PLAnalysisSettings.sharedInstance().applicationId = applicationId
+        PLAnalysisSettings.sharedInstance().applicationSecret = applicationSecret
+        PLAnalysisSettings.sharedInstance().analysisUniqueIdentifier = uniqueIdentifier
+        
+         PLConfigManager.sharedInstance().getReadyForTracking(completionHandler: { error in
+            if error != nil {
+                if let anError = error {
+                    print("Error Desc \(anError)")
+                }
+            } else {
+                print("Error Nil")
+                PLSuspendedAnalysisManager.sharedInstance()?.stopBeaconMonitoring()
+                PLStandardAnalysisManager.sharedInstance()?.startBeaconMonitoring()
+                PLStandardAnalysisManager.sharedInstance().delegate = self as? PLAnalysisManagerDelegate
+            }
+        })
+```
+
+##### For background tracking:
+
+In didFinishLaunchingWithOptions:  method you should activate the framework:
+
+```swift
+    if launchOptions?[UIApplication.LaunchOptionsKey.location] != nil {
+        if application.applicationState == UIApplication.State.background {
+            PLSuspendedAnalysisManager.sharedInstance()?.startBeaconMonitoring()
+        }
+    }
+```
+
+##### Close All Actions
+If you want to close all location services and regions for SDK you can call this method:
+
+```swift
+PLAnalysisSettings.sharedInstance()?.closeAllActions()
+```
+
 ### Objective-C
 You should import framework in your AppDelegate
 
@@ -86,52 +134,4 @@ If you want to close all location services and regions for SDK you can call this
 
 ```objective-c
 [[PLAnalysisSettings sharedInstance] closeAllActions];
-```
-
-### Swift
-
-You should import framework in your AppDelegate
-
-```swift
-import PoilabsAnalysis
-```
-
-In applicationDidBecomeActive: method you should activate the framework:
-
-```swift
-        PLAnalysisSettings.sharedInstance().applicationId = applicationId
-        PLAnalysisSettings.sharedInstance().applicationSecret = applicationSecret
-        PLAnalysisSettings.sharedInstance().analysisUniqueIdentifier = uniqueIdentifier
-        
-         PLConfigManager.sharedInstance().getReadyForTracking(completionHandler: { error in
-            if error != nil {
-                if let anError = error {
-                    print("Error Desc \(anError)")
-                }
-            } else {
-                print("Error Nil")
-                PLSuspendedAnalysisManager.sharedInstance()?.stopBeaconMonitoring()
-                PLStandardAnalysisManager.sharedInstance()?.startBeaconMonitoring()
-                PLStandardAnalysisManager.sharedInstance().delegate = self as? PLAnalysisManagerDelegate
-            }
-        })
-```
-
-##### For background tracking:
-
-In didFinishLaunchingWithOptions:  method you should activate the framework:
-
-```swift
-    if launchOptions?[UIApplication.LaunchOptionsKey.location] != nil {
-        if application.applicationState == UIApplicationState.background {
-            PLSuspendedAnalysisManager.sharedInstance()?.startBeaconMonitoring()
-        }
-    }
-```
-
-##### Close All Actions
-If you want to close all location services and regions for SDK you can call this method:
-
-```swift
-PLAnalysisSettings.sharedInstance()?.closeAllActions()
 ```
