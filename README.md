@@ -123,13 +123,9 @@ In didFinishLaunchingWithOptions:  method you should activate the framework:
 
 ```swift
     if launchOptions?[UIApplication.LaunchOptionsKey.location] != nil {
-        PLConfigManager.sharedInstance()?.getReadyForTracking(completionHandler: { (error) in
-            if error != nil {
-                if application.applicationState == UIApplicationState.background {
-                    PLSuspendedAnalysisManager.sharedInstance()?.startBeaconMonitoring()
-                }
-            }
-        })
+        if application.applicationState == UIApplicationState.background {
+            PLSuspendedAnalysisManager.sharedInstance()?.startBeaconMonitoring()
+        }
     }
 ```
 
