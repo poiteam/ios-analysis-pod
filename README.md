@@ -1,10 +1,9 @@
-![Poilabs](https://www.poilabs.com/public/img/poi-labs-logo.png)
+# PoilabsAnalysis
 
-# PoilabsAnalysis framework
+[![Version](https://img.shields.io/cocoapods/v/PoilabsAnalysis.svg?style=flat)](https://cocoapods.org/pods/PoilabsNavigation)
+[![Platform](https://img.shields.io/cocoapods/p/PoilabsAnalysis.svg?style=flat)](https://cocoapods.org/pods/PoilabsNavigation)
 
-Version: 3.8.0
-
-## INSTALATION
+## INSTALLATION
 
 ### CocoaPods
 
@@ -15,7 +14,7 @@ pod 'PoilabsAnalysis'
 ```
 ### Manually
 You can add PoilabsAnalysis.xcframework file to your "Frameworks, Libaries, and Embedded Content" in your Project’s General Tab.
-## INTEGRATION
+## PRE-REQUIREMENTS
 To Integrate this framework you should add some features to your project info.plist file.
 
 #### Location Permission
@@ -32,14 +31,7 @@ This framework give support both Always and WhenInUse authorization.
 
 You should add "Location updates" and "Uses Bluetooth LE accessories" Background Modes from Project's Signing & Capabilities tab.
 
-## USSAGE
-
-
-You should have some information to use this framework:
-
-1. ApplicationId : It should be given by PoiLabs
-2. ApplicationSecret : It should be given by PoiLabs
-3. AnalysisUniqueIdentifier : It should be defined by you, to identify your customer for us, it is like userId or userEmail.
+## USAGE
 
 ### Swift
 
@@ -52,9 +44,9 @@ import PoilabsAnalysis
 In applicationDidBecomeActive: method you should activate the framework:
 
 ```swift
-        PLAnalysisSettings.sharedInstance().applicationId = applicationId
-        PLAnalysisSettings.sharedInstance().applicationSecret = applicationSecret
-        PLAnalysisSettings.sharedInstance().analysisUniqueIdentifier = uniqueIdentifier
+        PLAnalysisSettings.sharedInstance().applicationId = APPLICATION_ID
+        PLAnalysisSettings.sharedInstance().applicationSecret = APPLICATION_SECRET_KEY
+        PLAnalysisSettings.sharedInstance().analysisUniqueIdentifier = UNIQUE_ID
         
          PLConfigManager.sharedInstance().getReadyForTracking(completionHandler: { error in
             if error != nil {
@@ -87,51 +79,4 @@ If you want to close all location services and regions for SDK you can call this
 
 ```swift
 PLAnalysisSettings.sharedInstance()?.closeAllActions()
-```
-
-### Objective-C
-You should import framework in your AppDelegate
-
-```objective-c
-#import <PoilabsAnalysis/PoilabsAnalysis.h>
-```
-
-In applicationDidBecomeActive: method you should activate the framework:
-
-```objective-c
-    [[PLAnalysisSettings sharedInstance] setApplicationId:@"applicationId"];
-    [[PLAnalysisSettings sharedInstance] setApplicationSecret:@"applicationSecret"];
-    [[PLAnalysisSettings sharedInstance] setAnalysisUniqueIdentifier:@"uniqueIdentifier"];
-        [[PLConfigManager sharedInstance] getReadyForTrackingWithCompletionHandler:^(PLError *error) {
-        if (error) {
-            NSLog(@"Error Desc %@",error);
-        }
-        else
-        {
-            NSLog(@"Error Nil");
-            [[PLSuspendedAnalysisManager sharedInstance] stopBeaconMonitoring];
-            [[PLStandardAnalysisManager sharedInstance] startBeaconMonitoring];
-            [[PLStandardAnalysisManager sharedInstance] setDelegate:self];
-        }
-    }];
-```
-
-##### For background tracking:
-
-In didFinishLaunchingWithOptions:  method you should activate the framework:
-
-```objective-c
-    if ([launchOptions objectForKey:UIApplicationLaunchOptionsLocationKey]
-        && [UIApplication sharedApplication].applicationState == UIApplicationStateBackground)
-    {
-        [[PLSuspendedAnalysisManager sharedInstance] startBeaconMonitoring];
-    }
-    
-```
-
-##### Close All Actions
-If you want to close all location services and regions for SDK you can call this method:
-
-```objective-c
-[[PLAnalysisSettings sharedInstance] closeAllActions];
 ```
