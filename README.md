@@ -33,8 +33,6 @@ You should add "Location updates" and "Uses Bluetooth LE accessories" Background
 
 ## USAGE
 
-### Swift
-
 You should import framework in your AppDelegate
 
 ```swift
@@ -62,7 +60,7 @@ In applicationDidBecomeActive: method you should activate the framework:
         })
 ```
 
-##### For background tracking:
+#### For background tracking:
 
 In didFinishLaunchingWithOptions:  method you should activate the framework:
 
@@ -74,9 +72,96 @@ In didFinishLaunchingWithOptions:  method you should activate the framework:
     }
 ```
 
-##### Close All Actions
+#### Close All Actions
 If you want to close all location services and regions for SDK you can call this method:
 
 ```swift
 PLAnalysisSettings.sharedInstance()?.closeAllActions()
 ```
+
+## TESTING
+
+You can only test PoilabsAnalysis sdk with real device. You can run on simulator but for testing you should **run on a iPhone**.
+
+Some test cases are only for versions **3.8.2 or above**. For better test cases, please update PoilabsAnalysis if you integrated a lower version.
+
+### Initialization
+
+Error of below method should be nil. 
+
+```swift
+PLConfigManager.sharedInstance().getReadyForTracking(completionHandler: { error in
+
+})        
+```
+#### Error descriptions
+
+1. Request failed: forbidden (403)
+	* Please check APPLICATION ID and APPLICATION SECRET KEY
+2. Your Application id is Unavailable
+ * Set **PLAnalysisSettings.sharedInstance().applicationId**
+3. Your Application secret is Unavailable
+ * Set **PLAnalysisSettings.sharedInstance().applicationSecret**
+4. Your Analysis uniqueId is Unavailable
+ * Set **PLAnalysisSettings.sharedInstance().analysisUniqueIdentifier**
+
+
+### Foreground Monitoring
+
+Foreground monitoring means scaning beacon and returning relevant node's id when application is active. If you initilize PoilabsAnalysis sdk with nil error and start beacon monitoring of **PLStandartAnalysisManager**, node ids will return to callback below. 
+
+
+```swift
+extension AppDelegate: PLAnalysisManagerDelegate {
+    func analysisManagerResponse(forBeaconMonitoring response: [AnyHashable : Any]!) {
+        print(response)
+    }
+}
+```
+
+For getting response, you have to be **nearby of a beacon** with data which are shared by PoiLabs.
+
+Trigger of this callback can take time, please wait for minumun 30 seconds after start monitoring. 
+
+You can see an example of response below.
+
+```json
+{
+"data": [
+    ["nodeid1", "nodeid2", ...],
+    ["nodeid1", ...],
+    ["nodeid1", ...],
+    ...
+    ], 
+"status": 1
+}
+```
+
+If you can get a reponse like this, foreground monitoring is successfully integrated.
+
+### Background Monitoring
+
+Background monitoring means scaning beacon when application is killed. 
+
+Before start to test please make sure **always location permission** is given.
+
+To activate background mode, you should kill application and lock the screen. After you show the lock screen or unlock your iPhone, background monitoring will start if you entegrate it, like in the section **USAGE/For background tracking**.
+
+For getting response, you have to be **nearby of a beacon** with data which are shared by PoiLabs.
+
+You can test background monitoring on Console. Open Console application on your Mac. Type **PLAnalysisSdk** to search field. Select your iPhone from Devices section on the left. Press start button.
+
+First you will see start log and then if sdk find any beacon and get its id, you will see response log. Examples of logs are below.
+
+```json
+PLAnalysisSdk <PLSuspendedAnalysisManager: 0x...>->SuspendedAnalysisManager startBeaconMonitoring
+
+PLAnalysisSdk <PLSuspendedAnalysisManager: 0x...>->Response {
+    data =     ( (  "nodeid1", "nodeid2", ... ),
+                ( "nodeid1", ... ),
+                ( "nodeid1", ... )
+    );
+    status = 1;
+}
+```
+If you get these log, background monitoring is successfully integrated.
