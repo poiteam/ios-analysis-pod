@@ -39,4 +39,6 @@
 // optional; if you want to get additional data with your identifier, set this dictionary this will be send to server
 // it will not be saved to UserDefault , to get this data you should set this value before startBeaconMonitoring both standard and suspended
 @property(strong, nonatomic) NSDictionary *customUserData;
+
+-(NSString *)getpoilabsAnalysisVersionNumber;
 @end
