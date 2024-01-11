@@ -19,7 +19,4 @@
 
 -(void)stopBeaconMonitoring;
 
-
--(void)bluetoothStatusChanged:(BOOL)bluetoothStatus;
-
 @end

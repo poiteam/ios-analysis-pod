@@ -19,6 +19,8 @@
 
 @property(assign, nonatomic) NSInteger messagingTimeInterval;
 
+@property(assign, nonatomic) int configTTL;
+
 @property(strong, nonatomic) NSMutableArray *beaconRegionsMutableArray;
 
 @property(strong, nonatomic) PLDataFilter *dataFilter;
