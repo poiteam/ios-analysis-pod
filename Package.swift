@@ -4,21 +4,16 @@
 import PackageDescription
 
 let package = Package(
-    name: "ios-analysis-pod",
+    name: "PoilabsAnalysis",
     platforms: [.iOS(.v14)],
     products: [
         .library(
-            name: "ios-analysis-pod",
-            targets: ["ios-analysis-pod"]),
+            name: "PoilabsAnalysis",
+            targets: ["PoilabsAnalysis"]),
     ],
     targets: [
-        .target(
-            name: "ios-analysis-pod"),
         .binaryTarget(name: "PoilabsAnalysis",
                       path: "PoilabsAnalysis.xcframework"),
-        .testTarget(
-            name: "ios-analysis-podTests",
-            dependencies: ["ios-analysis-pod"]),
     ],
     swiftLanguageVersions: [.v5]
 )
