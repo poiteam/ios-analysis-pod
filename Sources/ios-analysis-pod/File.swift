@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+final class test {
+    func test2() {
+        
+    }
+}

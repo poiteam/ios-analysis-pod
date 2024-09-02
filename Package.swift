@@ -13,7 +13,7 @@ let package = Package(
     ],
     targets: [
         .binaryTarget(name: "PoilabsAnalysis",
-                      path: "PoilabsAnalysis.xcframework"),
+                      path: "./PoilabsAnalysis.xcframework"),
     ],
     swiftLanguageVersions: [.v5]
 )
