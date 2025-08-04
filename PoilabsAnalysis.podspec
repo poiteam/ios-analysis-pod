@@ -17,7 +17,7 @@ s.license = { :type => "Proprietary", :file => "LICENSE" }
 s.author = { "Burak Dönmez" => "burak@poilabs.com" }
 
 # 5 - Replace this URL with your own GitHub page's URL (from the address bar)
-s.homepage = "https://github.com/poiteam/ios-analysis-pod"
+s.homepage = "https://github.com/poiteam/ios-analysis-pod.git"
 
 # 6 - Replace this URL with your own Git URL from "Quick Setup"
 s.source = { :git => "https://emrekuru@github.com/poiteam/ios-analysis-pod",
