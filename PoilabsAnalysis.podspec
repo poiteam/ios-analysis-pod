@@ -8,19 +8,19 @@ s.summary = "PoilabsAnalysis"
 #s.requires_arc = true
 
 #2
-s.version = "3.8.13"
+s.version = "3.8.14"
 
 # 3
 s.license = { :type => "Proprietary", :file => "LICENSE" }
 
 # 4 - Replace with your name and e-mail address
-s.author = { "Emre Kuru" => "emre@poilabs.com" }
+s.author = { "Burak Dönmez" => "burak@poilabs.com" }
 
 # 5 - Replace this URL with your own GitHub page's URL (from the address bar)
-s.homepage = "https://bitbucket.org/poiteam/ios-analysis-pod.git"
+s.homepage = "https://github.com/poiteam/ios-analysis-pod"
 
 # 6 - Replace this URL with your own Git URL from "Quick Setup"
-s.source = { :git => "https://emrekuru@bitbucket.org/poiteam/ios-analysis-pod.git",
+s.source = { :git => "https://emrekuru@github.com/poiteam/ios-analysis-pod",
              :tag => "#{s.version}" }
 
 s.pod_target_xcconfig = {
