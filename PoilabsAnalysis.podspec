@@ -20,7 +20,7 @@ s.author = { "Burak Dönmez" => "burak@poilabs.com" }
 s.homepage = "https://github.com/poiteam/ios-analysis-pod.git"
 
 # 6 - Replace this URL with your own Git URL from "Quick Setup"
-s.source = { :git => "https://emrekuru@github.com/poiteam/ios-analysis-pod",
+s.source = { :git => "https://emrekuru@github.com/poiteam/ios-analysis-pod.git",
              :tag => "#{s.version}" }
 
 s.pod_target_xcconfig = {
