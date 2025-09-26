@@ -1,0 +1,6 @@
+framework module PoilabsAnalysis {
+  umbrella header "PoilabsAnalysis.h"
+  export *
+
+  module * { export * }
+}
