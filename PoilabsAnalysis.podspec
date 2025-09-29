@@ -8,7 +8,7 @@ s.summary = "PoilabsAnalysis"
 #s.requires_arc = true
 
 #2
-s.version = "3.8.19"
+s.version = "3.8.20"
 
 # 3
 s.license = { :type => "Proprietary", :file => "LICENSE" }
