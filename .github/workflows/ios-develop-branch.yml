@@ -44,4 +44,4 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: token ${{ secrets.PAT }}" \
             https://api.github.com/repos/poiteam/ios-test-app/actions/workflows/194545538/dispatches \
-            -d '{"ref":"main"}'
+            -d '{"ref":"development"}'
