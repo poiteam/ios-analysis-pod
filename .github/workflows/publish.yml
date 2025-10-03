@@ -1,39 +1,39 @@
 name: Publish Pod
 
 on:
-  workflow_dispatch: # sadece API veya manuel tetikleme
+  workflow_dispatch: # sadece manuel veya API ile tetikleme
 
 jobs:
   publish:
     runs-on: macos-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
+      
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.2
-
+      
       - name: Install CocoaPods
         run: gem install cocoapods
-
-       - name: Extract version from podspec
+      
+      - name: Extract version from podspec
         id: get_version
         run: |
           VERSION=$(grep -E 's.version.*=' PoilabsAnalysis.podspec | sed -E 's/.*"([^"]+)".*/\1/')
           echo "VERSION=$VERSION" >> $GITHUB_ENV
           echo "Detected version: $VERSION"
-
+      
       - name: Create and push git tag
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
           git tag $VERSION
           git push origin $VERSION
-          
+      
       - name: Publish to trunk
         env:
           COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
         run: pod trunk push
+        
