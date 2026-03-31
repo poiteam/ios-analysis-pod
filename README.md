@@ -1,7 +1,7 @@
 # PoilabsAnalysis
 
-[![Version](https://img.shields.io/cocoapods/v/PoilabsAnalysis.svg?style=flat)](https://cocoapods.org/pods/PoilabsNavigation)
-[![Platform](https://img.shields.io/cocoapods/p/PoilabsAnalysis.svg?style=flat)](https://cocoapods.org/pods/PoilabsNavigation)
+![Version](https://img.shields.io/cocoapods/v/PoilabsAnalysis.svg?style=flat)
+![Platform](https://img.shields.io/cocoapods/p/PoilabsAnalysis.svg?style=flat)
 
 ## INSTALLATION
 
