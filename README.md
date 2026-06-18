@@ -1,13 +1,13 @@
 # PoilabsAnalysis
 
-![Version](https://img.shields.io/cocoapods/v/PoilabsAnalysis.svg?style=flat)
-![Platform](https://img.shields.io/cocoapods/p/PoilabsAnalysis.svg?style=flat)
+[![Version](https://img.shields.io/cocoapods/v/PoilabsAnalysis.svg?style=flat)](https://cocoapods.org/pods/PoilabsAnalysis)
+[![Platform](https://img.shields.io/cocoapods/p/PoilabsAnalysis.svg?style=flat)](https://cocoapods.org/pods/PoilabsAnalysis)
 
 ## INSTALLATION
 
 ### CocoaPods
 
-To integrate PoilabsNavigation into your Xcode project using CocoaPods, specify it in your `Podfile`:
+To integrate PoilabsAnalysis into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
 pod 'PoilabsAnalysis'
