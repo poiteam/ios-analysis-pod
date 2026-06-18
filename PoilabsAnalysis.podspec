@@ -8,7 +8,7 @@ s.summary = "PoilabsAnalysis"
 #s.requires_arc = true
 
 #2
-s.version = "3.8.24"
+s.version = "3.8.28"
 
 # 3
 s.license = { :type => "Proprietary", :file => "LICENSE" }
@@ -22,12 +22,6 @@ s.homepage = "https://github.com/poiteam/ios-analysis-pod.git"
 # 6 - Replace this URL with your own Git URL from "Quick Setup"
 s.source = { :git => "https://emrekuru@github.com/poiteam/ios-analysis-pod.git",
              :tag => "#{s.version}" }
-
-s.pod_target_xcconfig = {
-    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
-  }
-  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
-
 
 s.ios.vendored_frameworks = 'PoilabsAnalysis.xcframework'
 end
