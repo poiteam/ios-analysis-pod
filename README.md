@@ -1,25 +1,26 @@
 # PoilabsAnalysis
 
-[![Version](https://img.shields.io/cocoapods/v/PoilabsAnalysis.svg?style=flat)](https://cocoapods.org/pods/PoilabsAnalysis)
-[![Platform](https://img.shields.io/cocoapods/p/PoilabsAnalysis.svg?style=flat)](https://cocoapods.org/pods/PoilabsAnalysis)
+![Version](https://img.shields.io/github/v/tag/poiteam/ios-analysis-pod?label=version)
+![Platform](https://img.shields.io/badge/platform-iOS%2012%2B-lightgrey)
 
 ## INSTALLATION
 
-### Swift Package Manager
+### Swift Package Manager (recommended)
 
 1. In Xcode, select **File > Add Package Dependencies...**
 2. Enter the repository URL: `https://github.com/poiteam/ios-analysis-pod.git`
-3. Choose **Exact Version** `3.8.28` and add the **PoilabsAnalysis** product to your app target.
+3. Choose **Exact Version** `3.8.29` and add the **PoilabsAnalysis** product to your app target.
 
-The Swift package requires iOS 14.0 or later (CocoaPods supports iOS 12.0 or later). Use either SPM or CocoaPods for Poilabs SDKs, not both in the same app.
+Requires iOS 12.0 or later. Use either SPM or CocoaPods for Poilabs SDKs, not both in the same app.
 
 ### CocoaPods
 
-To integrate PoilabsAnalysis into your Xcode project using CocoaPods, specify it in your `Podfile`:
+Swift Package Manager is the recommended installation method. To use the latest version with CocoaPods, install it from the git tag:
 
 ```ruby
-pod 'PoilabsAnalysis'
+pod 'PoilabsAnalysis', :git => 'https://github.com/poiteam/ios-analysis-pod.git', :tag => '3.8.29'
 ```
+
 ### Manually
 You can add PoilabsAnalysis.xcframework file to your "Frameworks, Libaries, and Embedded Content" in your Project’s General Tab.
 ## PRE-REQUIREMENTS
