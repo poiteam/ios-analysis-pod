@@ -5,21 +5,17 @@
 
 ## INSTALLATION
 
-### Swift Package Manager (recommended)
+PoilabsAnalysis is distributed with Swift Package Manager. CocoaPods is no longer supported; new versions are not published there.
+
+### Swift Package Manager
 
 1. In Xcode, select **File > Add Package Dependencies...**
 2. Enter the repository URL: `https://github.com/poiteam/ios-analysis-pod.git`
 3. Choose **Exact Version** `3.8.29` and add the **PoilabsAnalysis** product to your app target.
 
-Requires iOS 12.0 or later. Use either SPM or CocoaPods for Poilabs SDKs, not both in the same app.
+Requires iOS 12.0 or later.
 
-### CocoaPods
-
-Swift Package Manager is the recommended installation method. To use the latest version with CocoaPods, install it from the git tag:
-
-```ruby
-pod 'PoilabsAnalysis', :git => 'https://github.com/poiteam/ios-analysis-pod.git', :tag => '3.8.29'
-```
+**Migrating from CocoaPods:** remove `pod 'PoilabsAnalysis'` from your `Podfile`, run `pod install` (or `pod deintegrate` if no other pods remain), then add the package as described above. Do not keep the SDK in your `Podfile` while it is added with SPM.
 
 ### Manually
 You can add PoilabsAnalysis.xcframework file to your "Frameworks, Libaries, and Embedded Content" in your Project’s General Tab.
